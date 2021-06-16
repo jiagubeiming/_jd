@@ -82,9 +82,9 @@ if ($.isNode()) {
     })
 async function showMsg() {
   if ($.errorMsg) return
-  allMessage += `账号${$.index}：${$.nickName || $.UserName}\n今日收入：${$.todayIncomeBean}京豆 🐶\n昨日收入：${$.incomeBean}豆 🐶\n昨日支出：${$.expenseBean}豆 🐶\n当前京豆：${$.beanCount}(今日将过期${$.expirejingdou})京豆 🐶${$.message}${$.index !== cookiesArr.length ? '\n\n' : ''}`;
+  allMessage += `账号${$.index}：${$.nickName || $.UserName}\n今：${$.todayIncomeBean}豆 \n昨：${$.incomeBean}豆 \n总：${$.beanCount}(${$.expirejingdou})豆 ${$.message}${$.index !== cookiesArr.length ? '\n\n' : ''}`;
   // if ($.isNode()) {
-  //   await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `账号${$.index}：${$.nickName || $.UserName}\n昨日收入：${$.incomeBean}京豆 🐶\n昨日支出：${$.expenseBean}京豆 🐶\n当前京豆：${$.beanCount}京豆 🐶${$.message}`, { url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean` })
+  //   await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `账号${$.index}：${$.nickName || $.UserName}\n昨：${$.incomeBean}豆 🐶\n总：${$.beanCount}豆 ${$.message}`, { url: `https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean` })
   // }
   $.msg($.name, '', `${$.index}：${$.nickName || $.UserName}\n今：${$.todayIncomeBean}豆 \n昨：${$.incomeBean}豆\n总：${$.beanCount}(${$.expirejingdou})豆${$.message}`, {"open-url": "https://bean.m.jd.com/beanDetail/index.action?resourceValue=bean"});
 }
